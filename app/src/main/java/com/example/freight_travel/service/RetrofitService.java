@@ -1,6 +1,6 @@
 package com.example.freight_travel.service;
 
-import com.example.freight_travel.endoints.ConstantsRestAPI;
+import com.example.freight_travel.constants.ConstantsRestAPI;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

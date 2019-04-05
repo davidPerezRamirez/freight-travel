@@ -1,6 +1,6 @@
 package com.example.freight_travel.service;
 
-import com.example.freight_travel.endoints.ConstantsRestAPI;
+import com.example.freight_travel.constants.ConstantsRestAPI;
 import com.example.freight_travel.models.Conductor;
 
 import java.util.List;

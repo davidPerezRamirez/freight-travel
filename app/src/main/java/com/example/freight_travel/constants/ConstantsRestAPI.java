@@ -1,4 +1,4 @@
-package com.example.freight_travel.endoints;
+package com.example.freight_travel.constants;
 
 public final class ConstantsRestAPI {
 

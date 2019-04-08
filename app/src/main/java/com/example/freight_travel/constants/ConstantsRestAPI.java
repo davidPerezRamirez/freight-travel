@@ -5,4 +5,8 @@ public final class ConstantsRestAPI {
     public static final String ROOT_URL_API_REST = "http://freight-travel.herokuapp.com/";
 
     public static final String GET_ALL_DRIVERS = "getAllDrivers/";
+
+    public static final String SAVE_DRIVER = "saveDriver/" ;
+
+    public static final String SAVE_IMAGE = "saveImage/";
 }

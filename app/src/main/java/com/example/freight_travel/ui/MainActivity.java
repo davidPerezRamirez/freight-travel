@@ -8,16 +8,19 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.freight_travel.R;
 import com.example.freight_travel.models.Conductor;
 import com.example.freight_travel.service.QueriesRestAPIService;
 import com.example.freight_travel.service.RetrofitService;
+import com.squareup.picasso.Picasso;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.util.List;
 
 import butterknife.BindView;
@@ -39,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.tv_nombre_conductor)
     TextView tvNombreConductor;
+    @BindView(R.id.image)
+    ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,22 +73,21 @@ public class MainActivity extends AppCompatActivity {
             tvNombreConductor.setText(ex.getMessage());
         }
 
+        /*try {
+            Picasso.with(this)
+                    .load("http://freight-travel.herokuapp.com/public/images/cameraman.png")
+                    .resize(200,200).into(imageView);
+        } catch (Exception ex) {
+            tvNombreConductor.setText(ex.getMessage());
+        }*/
 
-    }
-
-    public byte[] convertImageToArrayByte() throws IOException {
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.test);
-        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 50, stream);
-
-        return stream.toByteArray();
     }
 
     private void saveImage() throws IOException {
         //File file = new File("/storage/emulated/0/DCIM/Camera/flia.jpg");
         File file = new File(
                 Environment.getExternalStorageDirectory() + "/" +
-                        android.os.Environment.DIRECTORY_DCIM + "/Camera/flia.jpg");
+                        android.os.Environment.DIRECTORY_DCIM + "/Camera/prueba.jpg");
 
         RequestBody fileReqBody = RequestBody.create(MediaType.parse("image/*"), file);
         MultipartBody.Part part = MultipartBody.Part.createFormData("image", file.getName(), fileReqBody);

@@ -67,27 +67,29 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        try {
-            saveImage();
-        } catch (Exception ex) {
-            tvNombreConductor.setText(ex.getMessage());
-        }
-
         /*try {
-            Picasso.with(this)
-                    .load("http://freight-travel.herokuapp.com/public/images/cameraman.png")
-                    .resize(200,200).into(imageView);
+            saveImage();
         } catch (Exception ex) {
             tvNombreConductor.setText(ex.getMessage());
         }*/
 
+        try {
+            Picasso.with(this)
+                    .load("https://cloud-cube.s3.amazonaws.com/v10ciy7e5acm/public/images/chile.jpg")
+
+                    //.load("http://freight-travel.herokuapp.com/public/images/cameraman.png")
+                    .resize(200,200).into(imageView);
+        } catch (Exception ex) {
+            tvNombreConductor.setText(ex.getMessage());
+        }
+
     }
 
     private void saveImage() throws IOException {
-        //File file = new File("/storage/emulated/0/DCIM/Camera/flia.jpg");
-        File file = new File(
+        File file = new File("/storage/emulated/0/DCIM/Camera/chile.jpg");
+        /*File file = new File(
                 Environment.getExternalStorageDirectory() + "/" +
-                        android.os.Environment.DIRECTORY_DCIM + "/Camera/prueba.jpg");
+                        android.os.Environment.DIRECTORY_DCIM + "/Camera/prueba.jpg");*/
 
         RequestBody fileReqBody = RequestBody.create(MediaType.parse("image/*"), file);
         MultipartBody.Part part = MultipartBody.Part.createFormData("image", file.getName(), fileReqBody);
